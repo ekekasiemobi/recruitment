@@ -1,4 +1,4 @@
-import Navbar from "./components/Nav";
+import Nav from "./components/Nav";
 import Footer from "./components/footer";
 
 // import RecentJobs from "./components/sections/RecentJobs";
@@ -8,7 +8,7 @@ import TopCompanies from "./components/sections/TopCompanies";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <Nav />
 
       <main>
         {/* <RecentJobs /> */}
