@@ -1,9 +1,11 @@
-import React from 'react'
+import TopCompanies from "./components/TopCompanies"
 
-function page() {
+function AboutUs() {
   return (
-    <div>page</div>
+    <>
+        <TopCompanies />
+    </>
   )
 }
 
-export default page
+export default AboutUs 

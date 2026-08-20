@@ -2,7 +2,7 @@
 'use client'
 // import Nav from '../../components/nav'
 import type { SubmitHandler } from "react-hook-form"
-import Hero from '../components/hero'
+
 import { useForm} from "react-hook-form"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -85,7 +85,7 @@ function Home() {
         {/* <Nav/> */}
 
         <main className='bg-white min-h-screen '>
-            <Hero />
+       
             <div className='sm-bg md:md-bg bg-[#5EA4A3] p-15 relative'>
                 
             </div>
