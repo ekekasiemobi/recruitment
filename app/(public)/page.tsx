@@ -1,11 +1,26 @@
-import React from 'react'
 
-function Home() {
+import Jobs from './components/jobs'
+import Hero from './components/hero'
+
+import BrowseCategories from "./components/sections/BrowseCategories";
+
+
+export default function HomePage() {
   return (
     <>
-    <h1>hello</h1>
-    </>
-  )
-}
+     
+      <Hero />
 
-export default Home
+      <main>
+        <Jobs />
+
+        <BrowseCategories />
+
+
+        
+      </main>
+    
+      
+    </>
+  );
+}
