@@ -1,13 +1,29 @@
+
 'use client'
 // import Nav from '../../components/nav'
 import type { SubmitHandler } from "react-hook-form"
+import Hero from '../components/hero'
 import { useForm} from "react-hook-form"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import type { JobResponse } from '../../types/types'
 import type { Inputs } from '../../types/types'
 import Link from "next/link"
-import  {formatRelativeTime } from '../../types/formatetime';
+import  {formatRelativeTime } from '../../types/formatetime'
+import { 
+  User, 
+  Clock, 
+  Briefcase, 
+  GraduationCap, 
+  DollarSign, 
+  MapPin, 
+  Mail, 
+  Phone, 
+  MessageSquare, 
+  Bookmark, 
+  Award,
+  Check
+} from 'lucide-react';
 
 function Home() {
     const [jobs, setJobs] = useState<JobResponse[]>([])
@@ -69,6 +85,7 @@ function Home() {
         {/* <Nav/> */}
 
         <main className='bg-white min-h-screen '>
+            <Hero />
             <div className='sm-bg md:md-bg bg-[#5EA4A3] p-15 relative'>
                 
             </div>
@@ -87,47 +104,67 @@ function Home() {
                     ?.filter((job) => job.slug !== "chainstack").slice(0, 21).map((job) => {
 
                     return( 
-                        <Link className="pb-15" href={`/jobdetails/${job.id
-
-                        }`}>
-                        
-                        <div key={job.guid} className='bg-white  grid md:grid-cols-[26vw_1fr] justify-between p-5 mt-10 md:gap-15 gap-6 relative shadow-xs'>
-                            <img className='md:hidden absolute w-9 -top-5 mx-5 rounded' src={job.companyLogo} alt="" />
-
-                            <div className='flex gap-3 justify-start items-center mt-2 md:mt-0 '>
-                                <img className='w-15 hidden md:block rounded' src={job.company_logo} alt="" />
-                                
-                                <div className='flex flex-col gap-1'>
-                                    
-
-                                    <div>
-                                        <p className='font-bold text-sm league-spartan'>{job.title}</p>
-                                    </div>
-
-                                    <div className='flex gap-2'>
-                                        <p className='text-[#84B1AF] text font-bold league-spartan'>{job.company_name}</p>
-                                    </div>
-                                    
-                                    <div className='flex gap-7'>
-                                        <p className='text league-spartan'>{formatRelativeTime(job.publication_date)}</p>
-                                        <p className='text league-spartan'>{job.employmentType}</p>
-                                        <p className='text league-spartan'>{job.locationRestrictions}</p>
-                                    
-                                    </div>
-                                </div>
+                      <Link href={`/jobdetails/${job.id}`} 
+                        key={job.id} 
+                        className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-9 transition hover:shadow-md"
+                      >
+                        <div className="space-y-3 w-full sm:w-auto">
+                          <div className="flex items-center justify-between sm:justify-start gap-3">
+                            <span className="bg-emerald-50 text-emerald-600 text-xs px-2.5 py-1 rounded-md font-medium">
+                              {formatRelativeTime ? formatRelativeTime(job.publication_date) : 'Recently'}
+                            </span>
+                            <button className="sm:hidden text-gray-400 hover:text-gray-600">
+                              <Bookmark className="w-4 h-4" />
+                            </button>
+                          </div>
+        
+                          <div className="flex items-center gap-3">
+                            {job.company_logo ? (
+                              <img src={job.company_logo} alt="" className="w-10 h-10 rounded-lg object-cover" />
+                            ) : (
+                              <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                                {job.company_name?.charAt(0) || 'C'}
+                              </div>
+                            )}
+                            <div>
+                              <h4 className="font-bold text-gray-900 text-base leading-snug">{job.title}</h4>
+                              <p className="text-xs text-gray-500">{job.company_name}</p>
                             </div>
-
-                            <div className="flex flex-wrap justify-start md:justify-end gap-2 border-t pt-4 md:border-0 ">
-                                {job.categories?.map((category, index) =>{
-                                    return(
-                                        <p key={index} className="league-spartan bg-[#F0F6F5] p-2 text-[#5AA6A5] font-bold text-xs flex items-center justify-center rounded ">{category}</p>
-                                    )
-                                })}   
-                            
+                          </div>
+        
+                          {/* Info Badges */}
+                          <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-1">
+                            <div className="flex items-center gap-1">
+                              <Briefcase className="w-3.5 h-3.5 text-gray-400" />
+                              <span>{job.category || 'Commerce'}</span>
                             </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="w-3.5 h-3.5 text-gray-400" />
+                              <span>{job.job_type || 'Full time'}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <DollarSign className="w-3.5 h-3.5 text-gray-400" />
+                              <span>{job.salary || '$40000-$60000'}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="w-3.5 h-3.5 text-gray-400" />
+                              <span>{job.candidate_required_location || 'Worldwide'}</span>
+                            </div>
+                          </div>
                         </div>
-
-                    </Link>    
+        
+                        <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-0 pt-3 sm:pt-0 border-gray-100">
+                          <button className="hidden sm:block text-gray-400 hover:text-gray-600 p-2">
+                            <Bookmark className="w-4 h-4" />
+                          </button>
+                          <Link 
+                            href={`/jobdetails/${job.id}`}
+                            className="w-full sm:w-auto text-center bg-[#2a9d8f] hover:bg-[#238377] text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition"
+                          >
+                            Job Details
+                          </Link>
+                        </div>
+                      </Link>    
                 )
                 })}
                  
