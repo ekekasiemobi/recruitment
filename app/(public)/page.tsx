@@ -1,7 +1,7 @@
-import Nav from "./components/Nav";
-import Footer from "./components/footer";
-
 // import RecentJobs from "./components/sections/RecentJobs";
+
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 import BrowseCategories from "./components/sections/BrowseCategories";
 import TopCompanies from "./components/sections/TopCompanies";
 
@@ -18,7 +18,7 @@ export default function HomePage() {
         <TopCompanies />
       </main>
 
-      <Footer />
+      <Footer/>
     </>
   );
 }
