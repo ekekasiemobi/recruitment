@@ -1,11 +1,24 @@
-import React from 'react'
+import Navbar from "./components/Nav";
+import Footer from "./components/footer";
 
-function Home() {
+// import RecentJobs from "./components/sections/RecentJobs";
+import BrowseCategories from "./components/sections/BrowseCategories";
+import TopCompanies from "./components/sections/TopCompanies";
+
+export default function HomePage() {
   return (
     <>
-    <h1>hello</h1>
-    </>
-  )
-}
+      <Navbar />
 
-export default Home
+      <main>
+        {/* <RecentJobs /> */}
+
+        <BrowseCategories />
+
+        <TopCompanies />
+      </main>
+
+      <Footer />
+    </>
+  );
+}
