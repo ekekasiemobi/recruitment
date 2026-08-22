@@ -65,7 +65,7 @@ export default async function JobDetailPage({
 
       <div className="max-w-7xl mx-auto bg-white">
         <div className="max-w-7xl mx-auto p-6 sm:p-8">
-          {/* Top Row: Time Badge & Bookmark */}
+        
           <div className="flex items-center justify-between mb-4">
             <span className="bg-[#2a9d8f]/10 text-[#2a9d8f] text-xs font-semibold px-3 py-1 rounded-full">
               {formatRelativeTime ? formatRelativeTime(currentJob.publication_date) : '10 min ago'}
@@ -78,7 +78,6 @@ export default async function JobDetailPage({
             </button>
           </div>
 
-          {/* Middle Row: Logo + Title + Company */}
           <div className="flex items-start gap-4 mb-6">
             {currentJob.company_logo ? (
               <img 
@@ -101,9 +100,8 @@ export default async function JobDetailPage({
             </div>
           </div>
 
-          {/* Bottom Row: Metadata Icons & Apply Button */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-gray-100 pt-6">
-            {/* Key Details */}
+           
             <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 font-medium">
               <div className="flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-[#2a9d8f]" />
@@ -123,7 +121,7 @@ export default async function JobDetailPage({
               </div>
             </div>
 
-            {/* Apply Button */}
+   
             <a
               href={currentJob.url || '#'}
               target="_blank"
@@ -137,11 +135,10 @@ export default async function JobDetailPage({
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
-        {/* LEFT COLUMN: Main Job Details */}
+
         <div className="lg:col-span-8 flex flex-col gap-8">
           
-          {/* Main Content Box */}
+         
           <div className="bg-white p-6 sm:p-8 rounded-2xl ">
             <div>
               {[
@@ -160,14 +157,12 @@ export default async function JobDetailPage({
                 </div>
               ))}
             </div>
-
-            {/* Render HTML description from API */}
+          
             <div 
               className="prose max-w-none text-gray-700 text-sm leading-relaxed border-t pt-6 border-gray-100"
               dangerouslySetInnerHTML={{ __html: currentJob.description }} 
             />
 
-            {/* Tag Pills */}
             <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-gray-100">
               <span className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#2a9d8f]/10 text-[#2a9d8f]">
                 {currentJob.job_type || 'Full time'}
@@ -186,7 +181,7 @@ export default async function JobDetailPage({
             </div>
           </div>
 
-          {/* RELATED JOBS SECTION */}
+   
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-gray-900">Related Jobs</h3>
             {relatedJobs.map((job: any) => (
@@ -218,7 +213,7 @@ export default async function JobDetailPage({
                     </div>
                   </div>
 
-                  {/* Info Badges */}
+           
                   <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-1">
                     <div className="flex items-center gap-1">
                       <Briefcase className="w-3.5 h-3.5 text-gray-400" />
@@ -256,10 +251,9 @@ export default async function JobDetailPage({
 
         </div>
 
-        {/* RIGHT COLUMN: Sidebar Cards */}
+  
         <div className="lg:col-span-4 flex flex-col gap-6">
           
-          {/* Card 1: Job Overview */}
           <div className="bg-[#f0fdfa] p-6 rounded-2xl border border-emerald-100 space-y-5">
             <h2 className="font-bold text-gray-900 text-lg">Job Overview</h2>
 
@@ -321,7 +315,6 @@ export default async function JobDetailPage({
               </div>
             </div>
 
-            {/* Map Placeholder */}
             <div className="overflow-hidden rounded-xl border border-emerald-200 mt-2 relative h-40 bg-slate-200">
               <iframe
                 title="Job Location Map"
@@ -332,7 +325,6 @@ export default async function JobDetailPage({
             </div>
           </div>
 
-          {/* Card 2: Send Us Message Form */}
           <div className="bg-[#f0fdfa] p-6 rounded-2xl border border-emerald-100 space-y-4">
             <h2 className="font-bold text-gray-900 text-lg">Send Us Message</h2>
 
