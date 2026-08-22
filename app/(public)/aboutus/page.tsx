@@ -1,11 +1,35 @@
-import TopCompanies from "./components/TopCompanies"
+import { blogPosts } from "../components/data/blog";
+import { howItWorksSteps } from "../components/data/how-it-works";
+import Blogs from "../components/sections/Blogs";
+import HowItWorksCard from "./components/HowItWorksCard";
 
-function AboutUs() {
+export default function HowItWorks() {
   return (
-    <>
-        <TopCompanies />
-    </>
-  )
-}
+    <section className="bg-[#eef8f6] py-16">
+      <div className="mx-auto max-w-[1180px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-[#171717]">
+            How It Works
+          </h2>
 
-export default AboutUs 
+          <p className="mt-3 text-sm leading-6 text-gray-500">
+            Finding your next opportunity is simple. Follow these
+            four steps to get started.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {howItWorksSteps.map((step) => (
+            <HowItWorksCard
+              key={step.id}
+              step={step}
+            />
+           
+          ))}
+           
+        </div>
+        <Blogs posts={blogPosts}/>
+      </div>
+    </section>
+  );
+}

@@ -1,6 +1,6 @@
 
 'use client'
-// import Nav from '../../components/nav'
+
 import type { SubmitHandler } from "react-hook-form"
 
 import { useForm} from "react-hook-form"
@@ -29,10 +29,9 @@ function Home() {
     const [jobs, setJobs] = useState<JobResponse[]>([])
     const [error, setError] = useState("")
 
-    // console.log(error)
 
     const {register,handleSubmit,formState: { errors },} = useForm<Inputs>()
-    // console.log(watch("example"))
+   
 
     useEffect(() =>{
         async function fetchJobs() {
@@ -64,7 +63,7 @@ function Home() {
 
     const onSubmit: SubmitHandler<Inputs> = (data) =>{
 
-        // console.log(data)
+       
         const searchQuery = data.example?.trim()
         if(searchQuery.length > 0){
             const filteredJobs = jobs.filter((job) =>
@@ -91,17 +90,8 @@ function Home() {
             </div>
 
             <div className='w-[90vw] mx-auto pt-10'>
-
-                {/* <form className='bg-white p-3 w-[90vw] mx-auto shadow-xs flex justify-between gap-3 absolute -mt-20' onSubmit={handleSubmit(onSubmit)}>
-                        
-                    <input className='w-full p-3'  type="search"  placeholder='Search by categories' {...register("example")} />
-                    {errors.example && <span>This field is required</span>}
-
-                    <input className=' bg-[#5EA4A3] text-white text-xs px-5 rounded' type="submit" />
-                </form> */}
                 
-                {jobs
-                    ?.filter((job) => job.slug !== "chainstack").slice(0, 21).map((job) => {
+                {jobs ?.filter((job) => job.slug !== "chainstack").slice(0, 21).map((job) => {
 
                     return( 
                       <Link href={`/jobdetails/${job.id}`} 
@@ -132,7 +122,6 @@ function Home() {
                             </div>
                           </div>
         
-                          {/* Info Badges */}
                           <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-1">
                             <div className="flex items-center gap-1">
                               <Briefcase className="w-3.5 h-3.5 text-gray-400" />
