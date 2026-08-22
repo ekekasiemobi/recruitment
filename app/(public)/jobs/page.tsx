@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
+import TopCompanies from "./components/TopCompanies"
 import Link from 'next/link';
 import {
   Search,
@@ -392,9 +393,12 @@ function JobsListingPage() {
             </div>
           )}
 
-        </main>
 
+
+        </main>
+         
       </div>
+       <TopCompanies />
     </div>
   );
 }
