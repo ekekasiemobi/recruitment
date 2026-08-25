@@ -8,23 +8,24 @@ import ContactMap from './ContactMap'
 function Conctact() {
   return (
     <>
+      <Hero2 title="Contact Us"/>
       <div className='grid grid-cols-2'>
+        
         <div>
           <ContactInformation/>
         </div>
 
         <div>
-            <Form />
+          <Form />
         </div>
+
       </div>
 
       <div className='container mx-auto'>
-   
-           <Map />
-    
+        <Map />
       </div>
     
-    <Hero2 title="Contact Us"/>
+    
     
     </>
   )
