@@ -2,6 +2,7 @@ import { blogPosts } from "../components/data/blog";
 import { howItWorksSteps } from "../components/data/how-it-works";
 import Blogs from "../components/sections/Blogs";
 import HowItWorksCard from "./components/HowItWorksCard";
+import FAQSection from "./components/faq";
 import Hero2 from "../components/hero2";
 import VideoSection from "../components/sections/VideoSection";
 import BestCompanies from "../components/sections/BestCompanies";
@@ -34,6 +35,12 @@ export default function AboutUs() {
           ))}
 
         </div>
+        <Blogs posts={blogPosts}/>
+
+        <div className="mt-10">
+          <FAQSection />
+        </div>
+        
         <VideoSection/>
         <BestCompanies/>
         <Blogs posts={blogPosts} />

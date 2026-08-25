@@ -35,10 +35,9 @@ const contactDetails = [
 export default function ContactInformation() {
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-[1180px] px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+      <div className="px-5 sm:px-8 lg:px-10">
+        <div>
           
-          {/* Left */}
           <div>
 
             <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-[#171717] sm:text-4xl">
@@ -51,7 +50,6 @@ export default function ContactInformation() {
               help.
             </p>
 
-            {/* Contact details */}
             <div className="grid grid-cols-1-center gap-3 sm:grid-cols-2 lg:grid-cols-2 mt-8 space-y-5">
               {contactDetails.map((item) => {
                 const Icon = item.icon;
