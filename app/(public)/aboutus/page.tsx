@@ -2,6 +2,7 @@ import { blogPosts } from "../components/data/blog";
 import { howItWorksSteps } from "../components/data/how-it-works";
 import Blogs from "../components/sections/Blogs";
 import HowItWorksCard from "./components/HowItWorksCard";
+import FAQSection from "./components/faq";
 
 export default function HowItWorks() {
   return (
@@ -29,6 +30,11 @@ export default function HowItWorks() {
            
         </div>
         <Blogs posts={blogPosts}/>
+
+        <div className="mt-10">
+          <FAQSection />
+        </div>
+        
       </div>
     </section>
   );

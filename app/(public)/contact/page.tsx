@@ -1,11 +1,24 @@
-import React from 'react'
+import Form from './compontents/form'
+import Map from './compontents/map'
 
 function Conctact() {
   return (
     <>
-        <div className='h-screen'>
-            <h1>Welcome to contact page</h1>
+      <div className='grid grid-cols-2'>
+        <div>
+
         </div>
+
+        <div>
+            <Form />
+        </div>
+      </div>
+
+      <div className='container mx-auto'>
+   
+           <Map />
+    
+      </div>
     
     
     </>
