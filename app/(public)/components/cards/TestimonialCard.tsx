@@ -10,7 +10,7 @@ export default function TestimonialCard({
   testimonial,
 }: TestimonialCardProps) {
   return (
-    <article className="rounded-xl border border-[#e8eceb] bg-white p-6 shadow-sm transition hover:shadow-md">
+    <article className="rounded-xl border border-[#e8eceb] bg-white p-6 shadow-sm transition hover:border-[#159a8c]/40 ">
       
       {/* Stars */}
       <div className="mb-4 flex gap-1">

@@ -1,11 +1,16 @@
 import React from 'react'
+import Hero2 from '../components/hero2'
+import ContactInformation from './ContactInformation'
+import ContactMap from './ContactMap'
 
 function Conctact() {
   return (
     <>
-        <div className='h-screen'>
-            <h1>Welcome to contact page</h1>
-        </div>
+    
+    <Hero2 title="Contact Us"/>
+        
+    <ContactInformation/>
+    <ContactMap/>
     
     
     </>

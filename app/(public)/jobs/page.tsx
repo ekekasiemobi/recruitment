@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { formatRelativeTime } from '../../types/formatetime'; 
 import type { JobResponse } from '../../types/types'
+import Hero2 from '../components/hero2';
 
 function JobsListingPage() {
   const [jobs, setJobs] = useState<JobResponse[]>([]);
@@ -85,13 +86,15 @@ function JobsListingPage() {
   }
 
   return (
+    <>
+    <Hero2 title="Jobs"/>
     <div className="min-h-screen bg-[#f8fafc] text-gray-800 py-10 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">  
-      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+
         <aside className="lg:col-span-4 flex flex-col gap-6">
-       
+
           <div className="bg-[#f0fdfa] p-6 rounded-2xl border border-emerald-100 space-y-6">
-            
+
             <div>
               <label className="block text-xs font-bold text-gray-900 mb-2">
                 Search by Job Title
@@ -105,9 +108,8 @@ function JobsListingPage() {
                   onChange={(e) => {
                     setSearchTitle(e.target.value);
                     setCurrentPage(1);
-                  }}
-                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]"
-                />
+                  } }
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]" />
               </div>
             </div>
 
@@ -127,7 +129,7 @@ function JobsListingPage() {
               </div>
             </div>
 
-         
+
             <div>
               <label className="block text-xs font-bold text-gray-900 mb-3">
                 Category
@@ -148,9 +150,8 @@ function JobsListingPage() {
                         onChange={() => {
                           setSelectedCategory(selectedCategory === cat ? '' : cat);
                           setCurrentPage(1);
-                        }}
-                        className="rounded border-gray-300 text-[#2a9d8f] focus:ring-[#2a9d8f]"
-                      />
+                        } }
+                        className="rounded border-gray-300 text-[#2a9d8f] focus:ring-[#2a9d8f]" />
                       <span>{cat}</span>
                     </div>
                     <span className="text-gray-400">10</span>
@@ -162,7 +163,7 @@ function JobsListingPage() {
               </button>
             </div>
 
-         
+
             <div>
               <label className="block text-xs font-bold text-gray-900 mb-3">
                 Job Type
@@ -182,9 +183,8 @@ function JobsListingPage() {
                         onChange={() => {
                           setSelectedJobType(selectedJobType === item.value ? '' : item.value);
                           setCurrentPage(1);
-                        }}
-                        className="rounded border-gray-300 text-[#2a9d8f] focus:ring-[#2a9d8f]"
-                      />
+                        } }
+                        className="rounded border-gray-300 text-[#2a9d8f] focus:ring-[#2a9d8f]" />
                       <span>{item.label}</span>
                     </div>
                     <span className="text-gray-400">10</span>
@@ -260,10 +260,10 @@ function JobsListingPage() {
 
         </aside>
 
-       
+
         <main className="lg:col-span-8 flex flex-col gap-6">
-          
-         
+
+
           <div className="flex items-center justify-between text-xs text-gray-500">
             <span>
               Showing {totalResults > 0 ? startIndex + 1 : 0}-{Math.min(startIndex + itemsPerPage, totalResults)} of {totalResults} results
@@ -281,11 +281,11 @@ function JobsListingPage() {
             </div>
           </div>
 
-         
+
           <div className="space-y-4">
-            {loading ? ( Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 animate-pulse h-36" />
-              ))
+            {loading ? (Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 animate-pulse h-36" />
+            ))
             ) : currentJobs.length === 0 ? (
               <div className="bg-white p-12 text-center rounded-2xl border border-gray-100 text-gray-500">
                 No jobs match your selected filters.
@@ -297,7 +297,7 @@ function JobsListingPage() {
                   className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition hover:shadow-md"
                 >
                   <div className="space-y-3 w-full sm:w-auto">
-               
+
                     <div className="flex items-center justify-between sm:justify-start gap-3">
                       <span className="bg-[#2a9d8f]/10 text-[#2a9d8f] text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
                         {formatRelativeTime ? formatRelativeTime(job.publication_date) : 'Recently'}
@@ -307,14 +307,13 @@ function JobsListingPage() {
                       </button>
                     </div>
 
-               
+
                     <div className="flex items-center gap-3">
                       {job.company_logo ? (
                         <img
                           src={job.company_logo}
                           alt={job.company_name}
-                          className="w-10 h-10 rounded-xl object-cover border border-gray-100"
-                        />
+                          className="w-10 h-10 rounded-xl object-cover border border-gray-100" />
                       ) : (
                         <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-orange-400 to-indigo-500 flex items-center justify-center text-white font-bold text-sm">
                           {job.company_name?.charAt(0) || 'C'}
@@ -371,11 +370,9 @@ function JobsListingPage() {
                   <button
                     key={pageNum}
                     onClick={() => handlePageChange(pageNum)}
-                    className={`w-8 h-8 rounded-lg text-xs font-semibold transition flex items-center justify-center ${
-                      isActive
+                    className={`w-8 h-8 rounded-lg text-xs font-semibold transition flex items-center justify-center ${isActive
                         ? 'bg-[#2a9d8f] text-white'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
-                    }`}
+                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'}`}
                   >
                     {pageNum}
                   </button>
@@ -396,10 +393,10 @@ function JobsListingPage() {
 
 
         </main>
-         
+
       </div>
-       <TopCompanies />
-    </div>
+      <TopCompanies />
+    </div></>
   );
 }
 export default JobsListingPage
