@@ -3,10 +3,17 @@ import { howItWorksSteps } from "../components/data/how-it-works";
 import Blogs from "../components/sections/Blogs";
 import HowItWorksCard from "./components/HowItWorksCard";
 import FAQSection from "./components/faq";
+import Hero2 from "../components/hero2";
+import VideoSection from "../components/sections/VideoSection";
+import BestCompanies from "../components/sections/BestCompanies";
+import AboutIntro from "../components/sections/AboutIntro";
 
-export default function HowItWorks() {
+export default function AboutUs() {
   return (
-    <section className="bg-[#eef8f6] py-16">
+    <>
+    <Hero2 title="About Us" />
+    <AboutIntro/>
+    <section className="bg-white py-16">
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8 lg:px-10">
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-[#171717]">
@@ -23,11 +30,10 @@ export default function HowItWorks() {
           {howItWorksSteps.map((step) => (
             <HowItWorksCard
               key={step.id}
-              step={step}
-            />
-           
+              step={step} />
+
           ))}
-           
+
         </div>
         <Blogs posts={blogPosts}/>
 
@@ -35,7 +41,11 @@ export default function HowItWorks() {
           <FAQSection />
         </div>
         
+        <VideoSection/>
+        <BestCompanies/>
+        <Blogs posts={blogPosts} />
       </div>
     </section>
+    </>
   );
 }
