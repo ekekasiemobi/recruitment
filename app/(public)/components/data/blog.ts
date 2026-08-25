@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     author: "Job Portal",
     date: "Aug 12, 2026",
     readTime: "5 min read",
-    image: "/images/blog/resume.jpg",
+    image: "/images/Img.png",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     author: "Job Portal",
     date: "Aug 8, 2026",
     readTime: "4 min read",
-    image: "/images/blog/interview.jpg",
+    image: "/images/Img.png",
   },
   {
     id: 3,
@@ -45,6 +45,6 @@ export const blogPosts: BlogPost[] = [
     author: "Job Portal",
     date: "Aug 4, 2026",
     readTime: "6 min read",
-    image: "/images/blog/dream-job.jpg",
+    image: "/images/Img.png",
   },
 ];

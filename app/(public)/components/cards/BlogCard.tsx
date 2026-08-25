@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import { BlogPost } from "../data/blog";
+import Img from "../../images/Img.png"
 
 
 
@@ -20,7 +21,7 @@ export default function BlogCard({
         className="relative block aspect-[16/10] overflow-hidden bg-[#eef8f6]"
       >
         <Image
-          src={post.image}
+          src={Img}
           alt={post.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"

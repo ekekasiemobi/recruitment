@@ -15,6 +15,7 @@ import {
   Check
 } from 'lucide-react';
 import { formatRelativeTime } from '../../../types/formatetime'; 
+import Hero2 from '../../components/hero2';
 
 async function getJobData(jobId: string) {
   try {
@@ -61,17 +62,19 @@ export default async function JobDetailPage({
   }
 
   return (
+    <>
+    <Hero2 title="Job detail" />
     <div className="min-h-screen bg-white text-gray-800 py-10 px-4 md:px-8">
 
       <div className="max-w-7xl mx-auto bg-white">
         <div className="max-w-7xl mx-auto p-6 sm:p-8">
-        
+
           <div className="flex items-center justify-between mb-4">
             <span className="bg-[#2a9d8f]/10 text-[#2a9d8f] text-xs font-semibold px-3 py-1 rounded-full">
               {formatRelativeTime ? formatRelativeTime(currentJob.publication_date) : '10 min ago'}
             </span>
-            <button 
-              aria-label="Bookmark Job" 
+            <button
+              aria-label="Bookmark Job"
               className="text-gray-400 hover:text-gray-600 transition"
             >
               <Bookmark className="w-5 h-5" />
@@ -80,11 +83,10 @@ export default async function JobDetailPage({
 
           <div className="flex items-start gap-4 mb-6">
             {currentJob.company_logo ? (
-              <img 
-                src={currentJob.company_logo} 
-                alt={currentJob.company_name} 
-                className="w-12 h-12 rounded-xl object-cover"
-              />
+              <img
+                src={currentJob.company_logo}
+                alt={currentJob.company_name}
+                className="w-12 h-12 rounded-xl object-cover" />
             ) : (
               <div className="w-12 h-12 rounded-xl bg-linear-to-tr from-orange-400 via-pink-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xl">
                 {currentJob.company_name?.charAt(0) || 'C'}
@@ -101,7 +103,7 @@ export default async function JobDetailPage({
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-gray-100 pt-6">
-           
+
             <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 font-medium">
               <div className="flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-[#2a9d8f]" />
@@ -121,7 +123,7 @@ export default async function JobDetailPage({
               </div>
             </div>
 
-   
+
             <a
               href={currentJob.url || '#'}
               target="_blank"
@@ -137,8 +139,8 @@ export default async function JobDetailPage({
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
 
         <div className="lg:col-span-8 flex flex-col gap-8">
-          
-         
+
+
           <div className="bg-white p-6 sm:p-8 rounded-2xl ">
             <div>
               {[
@@ -157,11 +159,10 @@ export default async function JobDetailPage({
                 </div>
               ))}
             </div>
-          
-            <div 
+
+            <div
               className="prose max-w-none text-gray-700 text-sm leading-relaxed border-t pt-6 border-gray-100"
-              dangerouslySetInnerHTML={{ __html: currentJob.description }} 
-            />
+              dangerouslySetInnerHTML={{ __html: currentJob.description }} />
 
             <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-gray-100">
               <span className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#2a9d8f]/10 text-[#2a9d8f]">
@@ -181,12 +182,12 @@ export default async function JobDetailPage({
             </div>
           </div>
 
-   
+
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-gray-900">Related Jobs</h3>
             {relatedJobs.map((job: any) => (
-              <Link href={`/jobdetails/${job.id}`}  
-                key={job.id} 
+              <Link href={`/jobdetails/${job.id}`}
+                key={job.id}
                 className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition hover:shadow-md"
               >
                 <div className="space-y-3 w-full sm:w-auto">
@@ -213,7 +214,7 @@ export default async function JobDetailPage({
                     </div>
                   </div>
 
-           
+
                   <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-1">
                     <div className="flex items-center gap-1">
                       <Briefcase className="w-3.5 h-3.5 text-gray-400" />
@@ -238,7 +239,7 @@ export default async function JobDetailPage({
                   <button className="hidden sm:block text-gray-400 hover:text-gray-600 p-2">
                     <Bookmark className="w-4 h-4" />
                   </button>
-                  <Link 
+                  <Link
                     href={`/jobdetails/${job.id}`}
                     className="w-full sm:w-auto text-center bg-[#2a9d8f] hover:bg-[#238377] text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition"
                   >
@@ -251,9 +252,9 @@ export default async function JobDetailPage({
 
         </div>
 
-  
+
         <div className="lg:col-span-4 flex flex-col gap-6">
-          
+
           <div className="bg-[#f0fdfa] p-6 rounded-2xl border border-emerald-100 space-y-5">
             <h2 className="font-bold text-gray-900 text-lg">Job Overview</h2>
 
@@ -320,8 +321,7 @@ export default async function JobDetailPage({
                 title="Job Location Map"
                 className="w-full h-full border-0"
                 src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"
-              />
+                loading="lazy" />
             </div>
           </div>
 
@@ -331,42 +331,38 @@ export default async function JobDetailPage({
             <form className="space-y-3">
               <div className="relative">
                 <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
-                <input 
-                  type="text" 
-                  placeholder="Full name" 
-                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]"
-                />
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]" />
               </div>
 
               <div className="relative">
                 <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]"
-                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]" />
               </div>
 
               <div className="relative">
                 <Phone className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
-                <input 
-                  type="tel" 
-                  placeholder="Phone Number" 
-                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]"
-                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f]" />
               </div>
 
               <div className="relative">
                 <MessageSquare className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
-                <textarea 
-                  rows={3} 
-                  placeholder="Your Message" 
-                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f] resize-none"
-                />
+                <textarea
+                  rows={3}
+                  placeholder="Your Message"
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#2a9d8f] resize-none" />
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="bg-[#2a9d8f] hover:bg-[#238377] text-white text-xs font-semibold px-5 py-2.5 rounded-lg transition"
               >
                 Send Message
@@ -377,6 +373,6 @@ export default async function JobDetailPage({
         </div>
 
       </div>
-    </div>
+    </div></>
   );
 }

@@ -5,6 +5,8 @@ import Hero from './components/hero'
 import BrowseCategories from "./components/sections/BrowseCategories";
 import Testimonials from './components/sections/Testimonials';
 import Blogs from './components/sections/Blogs';
+import CompanyFeature from "./components/sections/CompanyFeature";
+import FutureBanner from "./components/sections/FutureBanner";
 
 
 export default function HomePage() {
@@ -17,6 +19,9 @@ export default function HomePage() {
         <Jobs />
 
         <BrowseCategories />
+
+        <CompanyFeature/>
+        <FutureBanner/>
         <Testimonials/>
         <Blogs posts={blogPosts}/>
 
