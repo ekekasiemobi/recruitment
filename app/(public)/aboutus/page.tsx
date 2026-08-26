@@ -35,7 +35,7 @@ export default function AboutUs() {
           ))}
 
         </div>
-        <Blogs posts={blogPosts}/>
+        
 
         <div className="mt-10">
           <FAQSection />
