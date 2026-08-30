@@ -16,14 +16,13 @@ function Conctact() {
         </div>
 
         <div>
-            <Form />
+          <Form />
         </div>
+
       </div>
 
       <div className='container mx-auto'>
-   
-           <Map />
-    
+        <Map />
       </div>
     
     
