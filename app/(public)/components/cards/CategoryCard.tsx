@@ -13,22 +13,21 @@ export default function CategoryCard({
   return (
     <Link
       href={`/jobs?category=${category.title.toLowerCase()}`}
-      className="group relative h-[180px] right-5 top-5 rounded-xl border border-[#e7edeb] bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#159a8c]/40 hover:shadow-md"
+      className="group relative rounded-2xl border-[#e8eceb] bg-white p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex-col items-center justify-center text-center"
     >
-      <div className=" absolute flex items-center gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#eef8f6] text-[#159a8c] transition-colors group-hover:bg-[#159a8c] group-hover:text-white">
-          <Icon className="h-5 w-5" />
-        </div>
+      
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#eef8f6] text-[#159a8c] mx-auto">
+        <Icon className="h-6 w-6" strokeWidth={1.8} />
+      </div>
 
-        <div className="pt-10 pl-5 min-w-0">
-          <h3 className="truncate text-sm font-semibold text-[#171717]">
-            {category.title}
-          </h3>
-
-          <p className="mt-1 text-xs text-gray-400">
-            {category.jobCount} Jobs
-          </p>
-        </div>
+     
+      <div className="mt-6">
+        <h3 className="text-base font-semibold text-[#171717]">
+          {category.title}
+        </h3>
+        <p className="mt-2 text-sm leading-6 text-gray-500">
+          {category.jobCount} Jobs
+        </p>
       </div>
     </Link>
   );
