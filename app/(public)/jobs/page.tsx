@@ -3,16 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import TopCompanies from "./components/TopCompanies"
 import Link from 'next/link';
-import {
-  Search,
-  MapPin,
-  Briefcase,
-  Clock,
-  DollarSign,
-  Bookmark,
-  ChevronDown,
-  ChevronRight
-} from 'lucide-react';
+import { Search, MapPin, Briefcase, Clock, DollarSign, Bookmark, ChevronDown, ChevronRight} from 'lucide-react';
 import { formatRelativeTime } from '../../types/formatetime'; 
 import type { JobResponse } from '../../types/types'
 import Hero2 from '../components/hero2';

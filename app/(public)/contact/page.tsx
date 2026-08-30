@@ -3,14 +3,14 @@ import Map from './compontents/map'
 import React from 'react'
 import Hero2 from '../components/hero2'
 import ContactInformation from './ContactInformation'
-import ContactMap from './ContactMap'
+
 
 function Conctact() {
   return (
     <>
-      <Hero2 title="Contact Us"/>
-      <div className='grid grid-cols-2'>
-        
+    <Hero2 title="Contact Us"/>
+    
+      <div className='grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-2'>
         <div>
           <ContactInformation/>
         </div>
@@ -24,7 +24,6 @@ function Conctact() {
       <div className='container mx-auto'>
         <Map />
       </div>
-    
     
     
     </>
