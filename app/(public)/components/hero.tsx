@@ -22,7 +22,6 @@ export default function HeroSection() {
       
         <div className="absolute inset-0 z-0 bg-radial from-transparent via-black/60 to-black" />
 
-       {/* <Nav /> */}
     
         <main className="relative z-10 max-w-5xl mx-auto px-6 py-16 text-center flex flex-col items-center justify-center my-auto">
        

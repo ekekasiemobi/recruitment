@@ -15,10 +15,10 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-[#e6e9e8] bg-white transition-all duration-200 hover:-translate-y-1 hover:border-[#159a8c]/30 hover:shadow-lg">
-      {/* Image */}
+
       <Link
         href={`/blog/${post.slug}`}
-        className="relative block aspect-[16/10] overflow-hidden bg-[#eef8f6]"
+        className="relative block aspect-16/10 overflow-hidden bg-[#eef8f6]"
       >
         <Image
           src={Img}
@@ -34,7 +34,7 @@ export default function BlogCard({
         </div>
       </Link>
 
-      {/* Content */}
+
       <div className="p-5">
         <div className="flex items-center gap-2 text-xs text-gray-400">
           <CalendarDays className="h-3.5 w-3.5" />
