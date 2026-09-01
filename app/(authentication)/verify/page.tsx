@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  FormEvent,
-  useState,
-} from "react";
-
+import { FormEvent, useState,} from "react";
 import { useRouter } from "next/navigation";
-
 import toast from "react-hot-toast";
-
 import {AuthInput, Button } from "../components/AuthInput";
 
 export default function VerifyCodePage() {

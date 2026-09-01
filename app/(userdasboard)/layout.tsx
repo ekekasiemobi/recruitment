@@ -1,9 +1,22 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Briefcase,Bookmark, Bell, Settings, LogOut, LayoutDashboard, Search, PhoneCall} from 'lucide-react';
+import { AuthProvider } from '../(authentication)/components/AuthContext';
+import { useRouter } from 'next/navigation';
+import Cookies from "js-cookie";
 
 export default function UserDashboardLayout({children}: {children: React.ReactNode }) {
+
+  const router = useRouter();
+  const handleLogout = () => {
+  Cookies.remove("accessToken");
+  Cookies.remove("refreshToken");
+  localStorage.removeItem("user");
+
+  router.push  ("/login");
+};
   return (
     <>
       <div className="min-h-screen bg-white text-gray-700 font-sans flex flex-col">
@@ -105,7 +118,8 @@ export default function UserDashboardLayout({children}: {children: React.ReactNo
             </div>
 
             <div className="mt-8 pt-4 border-t border-gray-100">
-              <button className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-900 w-full">
+              <button onClick={handleLogout}
+              className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-900 w-full">
                 <LogOut className="w-4 h-4" />
                 Log-out
               </button>
@@ -114,7 +128,10 @@ export default function UserDashboardLayout({children}: {children: React.ReactNo
 
       
           <main className="flex-1 p-4 sm:p-8 bg-white">
-            {children}
+            <AuthProvider>
+              {children} 
+            </AuthProvider>
+            
           </main>
         </div>
 

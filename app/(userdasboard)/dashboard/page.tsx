@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Briefcase, Bookmark, Bell, ArrowRight, Check } from 'lucide-react';
 import { JobResponse } from '@/app/types/types';
 import Image from 'next/image';
+import ProtectedRoute from '@/app/(authentication)/components/ProtectedRoute';
 
 
 function UserDashboard() {
@@ -32,7 +33,8 @@ function UserDashboard() {
   }, []);
 
   return (
-    <div className="space-y-6 w-full">
+    <ProtectedRoute>
+      <div className="space-y-6 w-full">
   
       <div>
         <h1 className="text-xl font-bold text-gray-900">Hello, Esther Howard</h1>
@@ -192,6 +194,9 @@ function UserDashboard() {
         </div>
       </div>
     </div>
+
+    </ProtectedRoute>
+    
   );
 }
 export default UserDashboard

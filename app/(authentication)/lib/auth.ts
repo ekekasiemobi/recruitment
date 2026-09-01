@@ -9,7 +9,7 @@ export interface AuthUser {
   lastName: string;
   gender?: string;
   image?: string;
-  role?: "admin" | "Job seeker" | "employer";
+  role?: "Job seeker" | "employer";
 }
 
 export interface LoginResponse extends AuthUser {
