@@ -1,24 +1,11 @@
 "use client";
 
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-
+import {createContext, ReactNode, useContext, useEffect, useState,} from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import {AuthUser, getCurrentUser, login as loginAPI, signup as signupAPI,} from "../lib/auth";
 
-import {
-  AuthUser,
-  getCurrentUser,
-  login as loginAPI,
-  signup as signupAPI,
-} from "../lib/auth";
-
-interface SignupPayload {
+interface Signup {
   fullName: string;
   username: string;
   email: string;
@@ -37,7 +24,7 @@ interface AuthContextType {
   ) => Promise<AuthUser>;
 
   signup: (
-    data: SignupPayload
+    data: Signup
   ) => Promise<any>;
 
   logout: () => void;
@@ -203,7 +190,7 @@ export function AuthProvider({
   
 
   const signup = async (
-    data: SignupPayload
+    data: Signup
   ) => {
     try {
       const response =
