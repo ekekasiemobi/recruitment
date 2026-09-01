@@ -1,51 +1,32 @@
 "use client";
 
-import {
-  ReactNode,
-  useEffect,
-} from "react";
-
+import {ReactNode, useEffect,} from "react";
 import { useRouter } from "next/navigation";
-
 import { useAuth } from "./AuthContext";
 
-interface ProtectedRouteProps {
+interface ProtectedRoute {
   children: ReactNode;
-  allowedRoles?: (
-    "admin" |
-    "Job seeker" |
-    "employer"
-  )[];
+  allowedRoles?: ( | "Job seeker" | "employer")[];
 }
 
 export default function ProtectedRoute({
   children,
   allowedRoles,
-}: ProtectedRouteProps) {
+}: ProtectedRoute) {
   const router = useRouter();
 
-  const {
-    user,
-    loading,
-    isAuthenticated,
-  } = useAuth();
+  const {user, loading, isAuthenticated,} = useAuth();
 
   useEffect(() => {
     if (loading) return;
 
-    if (!isAuthenticated) {
+    if (!isAuthenticated|| !user) {
       router.replace("/login");
       return;
     }
 
-    if (
-      allowedRoles &&
-      user &&
-      !allowedRoles.includes(
-        user.role as
-          | "admin"
-          | "Job seeker"
-          | "employer"
+    if (allowedRoles && user && !allowedRoles.includes(
+        user.role as | "Job seeker" | "employer"
       )
     ) {
       router.replace("/login");
@@ -68,7 +49,7 @@ export default function ProtectedRoute({
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !user) {
     return null;
   }
 
@@ -76,10 +57,7 @@ export default function ProtectedRoute({
     allowedRoles &&
     user &&
     !allowedRoles.includes(
-      user.role as
-        | "admin"
-        | "Job seeker"
-        | "employer"
+      user.role as | "Job seeker" | "employer"
     )
   ) {
     return null;

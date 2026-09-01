@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
 
       setLoading(false);
 
-      router.push("/verify-code");
+      router.push("/verify");
     }, 700);
   };
 

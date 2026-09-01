@@ -26,11 +26,11 @@ export default function Footer() {
               className="mb-5 flex items-center gap-2"
             >
               <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white">
-                <span className="text-[10px] font-bold">JP</span>
+                <span className="text-[10px] font-bold">HR</span>
               </div>
 
               <span className="text-sm font-semibold">
-                Job Portal
+                Her Recruit
               </span>
             </Link>
 
@@ -145,7 +145,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} Job Portal. All rights reserved.
+            © {new Date().getFullYear()} Her Recruit. All rights reserved.
           </p>
 
           <div className="flex gap-5">

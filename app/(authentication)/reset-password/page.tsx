@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  FormEvent,
-  useEffect,
-  useState,
-} from "react";
-
+import {FormEvent, useEffect, useState,} from "react";
 import { useRouter } from "next/navigation";
-
 import toast from "react-hot-toast";
-
 import {AuthInput, Button } from "../components/AuthInput";
 
 export default function ResetPasswordPage() {
@@ -33,7 +26,7 @@ export default function ResetPasswordPage() {
 
     if (verified !== "true") {
       router.replace(
-        "/forgot-password"
+        "/"
       );
     }
   }, [router]);
@@ -67,10 +60,7 @@ export default function ResetPasswordPage() {
       return;
     }
 
-    /*
-     * DummyJSON does not provide a real
-     * password reset endpoint.
-     */
+    
 
     sessionStorage.removeItem(
       "resetVerified"

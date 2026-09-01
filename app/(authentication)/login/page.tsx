@@ -3,14 +3,7 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  Eye,
-  EyeOff,
-  
-} from "lucide-react";
-
+import {ArrowRight, BriefcaseBusiness, Eye, EyeOff,} from "lucide-react";
 import { useAuth } from "../components/AuthContext";
 
 export default function LoginPage() {
@@ -23,7 +16,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
-    email: "",
+    userName: "",
     password: "",
   });
 
@@ -49,9 +42,9 @@ export default function LoginPage() {
 
     setError("");
 
-    if (!form.email.trim()) {
+    if (!form.userName.trim()) {
       setError(
-        "Please enter your email address."
+        "Please enter your username."
       );
       return;
     }
@@ -67,7 +60,7 @@ export default function LoginPage() {
      
 
       await login(
-        form.email,
+        form.userName,
         form.password
       );
 
@@ -79,13 +72,13 @@ export default function LoginPage() {
 
       if (role === "employer") {
         router.push(
-          "/employer/dashboard"
+          "/"
         );
       } else if (
         role === "Job seeker"
       ) {
         router.push(
-          "/Job seeker/dashboard"
+          "/dashboard"
         );
       } else {
         router.push("/");
@@ -160,12 +153,12 @@ export default function LoginPage() {
                 
 
                 <input
-                  type="email"
-                  name="email"
-                  value={form.email}
+                  type="userName"
+                  name="userName"
+                  value={form.userName}
                   onChange={handleChange}
-                  placeholder="Email address"
-                  autoComplete="email"
+                  placeholder="Enter username"
+                  autoComplete="userName"
                   className="h-[43px] w-full rounded-[5px] border border-[#E1E4E8] bg-white px-4 text-[13px] text-[#333] outline-none transition placeholder:text-[#9BA3AE] focus:border-[#1677D2]"
                 />
 
@@ -220,7 +213,7 @@ export default function LoginPage() {
                   </label>
 
                   <Link
-                    href="/reset-password"
+                    href="/forgot-password"
                     className="text-[12px] font-medium text-[#1677D2] hover:underline"
                   >
                     Forgot Password?

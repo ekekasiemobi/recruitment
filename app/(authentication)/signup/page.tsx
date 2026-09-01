@@ -3,15 +3,7 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  Eye,
-  EyeOff,
-  
-  UserRound,
-} from "lucide-react";
-
+import { ArrowRight, BriefcaseBusiness, Eye, EyeOff, UserRound,} from "lucide-react";
 import { useAuth } from "../components/AuthContext";
 
 type AccountType = "Job seeker" | "employer";
@@ -20,14 +12,11 @@ export default function SignupPage() {
   const router = useRouter();
   const { signup } = useAuth();
 
-  const [accountType, setAccountType] =
-    useState<AccountType>("employer");
+  const [accountType, setAccountType] = useState<AccountType>("employer");
 
-  const [showPassword, setShowPassword] =
-    useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -228,7 +217,6 @@ export default function SignupPage() {
                 className="space-y-4"
               >
 
-                {/* Full name + username */}
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
@@ -254,7 +242,6 @@ export default function SignupPage() {
 
                 </div>
 
-                {/* Email */}
 
                 <input
                   type="email"
@@ -266,7 +253,6 @@ export default function SignupPage() {
                   className="h-[43px] w-full rounded-[5px] border border-[#E1E4E8] bg-white px-4 text-[13px] text-[#333] outline-none transition placeholder:text-[#9BA3AE] focus:border-[#1677D2]"
                 />
 
-                {/* Password */}
 
                 <div className="relative">
 

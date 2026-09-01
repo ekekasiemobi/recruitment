@@ -1,28 +1,16 @@
 "use client";
 
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-
+import {createContext, ReactNode, useContext, useEffect, useState,} from "react";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import {AuthUser, getCurrentUser, login as loginAPI, signup as signupAPI,} from "../lib/auth";
 
-import {
-  AuthUser,
-  getCurrentUser,
-  login as loginAPI,
-  signup as signupAPI,
-} from "../lib/auth";
-
-interface SignupPayload {
+interface Signup {
   fullName: string;
   username: string;
   email: string;
   password: string;
-  role : "Job seeker" | "employer";
+  role: "Job seeker" | "employer";
 }
 
 interface AuthContextType {
@@ -36,7 +24,7 @@ interface AuthContextType {
   ) => Promise<AuthUser>;
 
   signup: (
-    data: SignupPayload
+    data: Signup
   ) => Promise<any>;
 
   logout: () => void;
@@ -52,36 +40,47 @@ export function AuthProvider({
 }: {
   children: ReactNode;
 }) {
+  const router = useRouter();
+
   const [user, setUser] =
     useState<AuthUser | null>(null);
 
   const [loading, setLoading] =
     useState(true);
 
-  const isAuthenticated = !!user;
+  const [isAuthenticated, setIsAuthenticated] =
+    useState(false);
 
-  
+ 
+
   useEffect(() => {
-    const restoreSession = async () => {
+    const checkAuthentication = () => {
       const token =
         localStorage.getItem("accessToken");
 
-      if (!token) {
+      const storedUser =
+        localStorage.getItem("user");
+
+     
+      if (!token || !storedUser) {
+        setUser(null);
+        setIsAuthenticated(false);
         setLoading(false);
         return;
       }
 
       try {
-        const currentUser =
-          await getCurrentUser();
+        const parsedUser =
+          JSON.parse(storedUser);
 
-        setUser(currentUser);
-
-        localStorage.setItem(
-          "user",
-          JSON.stringify(currentUser)
+        setUser(parsedUser);
+        setIsAuthenticated(true);
+      } catch (error) {
+        console.error(
+          "Failed to restore authentication:",
+          error
         );
-      } catch {
+
         localStorage.removeItem(
           "accessToken"
         );
@@ -92,16 +91,21 @@ export function AuthProvider({
 
         localStorage.removeItem("user");
 
+        document.cookie =
+          "accessToken=; path=/; max-age=0";
+
         setUser(null);
+        setIsAuthenticated(false);
       } finally {
         setLoading(false);
       }
     };
 
-    restoreSession();
+    checkAuthentication();
   }, []);
 
   
+
   const login = async (
     username: string,
     password: string
@@ -111,6 +115,8 @@ export function AuthProvider({
         username,
         password
       );
+
+      
 
       localStorage.setItem(
         "accessToken",
@@ -122,8 +128,19 @@ export function AuthProvider({
         data.refreshToken
       );
 
+      
+      document.cookie =
+        `accessToken=${data.accessToken}; ` +
+        `path=/; ` +
+        `max-age=${60 * 60 * 24 * 7}; ` +
+        `samesite=lax`;
+
+     
+
       const currentUser =
         await getCurrentUser();
+
+      
 
       setUser(currentUser);
 
@@ -131,6 +148,10 @@ export function AuthProvider({
         "user",
         JSON.stringify(currentUser)
       );
+
+      
+
+      setIsAuthenticated(true);
 
       toast.success(
         `Welcome back, ${currentUser.firstName}!`
@@ -144,13 +165,32 @@ export function AuthProvider({
 
       toast.error(message);
 
+      
+
+      localStorage.removeItem(
+        "accessToken"
+      );
+
+      localStorage.removeItem(
+        "refreshToken"
+      );
+
+      localStorage.removeItem("user");
+
+      document.cookie =
+        "accessToken=; path=/; max-age=0";
+
+      setUser(null);
+      setIsAuthenticated(false);
+
       throw error;
     }
   };
 
   
+
   const signup = async (
-    data: SignupPayload
+    data: Signup
   ) => {
     try {
       const response =
@@ -173,7 +213,9 @@ export function AuthProvider({
   };
 
   
+
   const logout = () => {
+    
     localStorage.removeItem(
       "accessToken"
     );
@@ -184,13 +226,22 @@ export function AuthProvider({
 
     localStorage.removeItem("user");
 
+   
+    document.cookie =
+      "accessToken=; path=/; max-age=0";
+
+   
+
     setUser(null);
+    setIsAuthenticated(false);
 
     toast.success(
       "You have been logged out."
     );
 
-    window.location.href = "/login";
+   
+
+    router.replace("/login");
   };
 
   return (
@@ -208,6 +259,7 @@ export function AuthProvider({
     </AuthContext.Provider>
   );
 }
+
 
 export function useAuth() {
   const context =

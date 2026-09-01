@@ -1,6 +1,6 @@
 import api from "../lib/axios";
 
-export interface AuthUser {
+export type AuthUser = {
   id: number;
   username: string;
   email: string;
@@ -9,7 +9,7 @@ export interface AuthUser {
   lastName: string;
   gender?: string;
   image?: string;
-  role?: "admin" | "Job seeker" | "employer";
+  role?: "Job seeker" | "employer";
 }
 
 export interface LoginResponse extends AuthUser {
@@ -18,7 +18,7 @@ export interface LoginResponse extends AuthUser {
 }
 export type UserRole ="Job seeker" | "employer"
 
-export interface SignupData {
+export type SignupData = {
   fullName: string;
   username: string;
   email: string;

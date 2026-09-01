@@ -38,11 +38,11 @@ export default function Nav() {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white">
-            <span className="text-[10px] font-bold">JP</span>
+            <span className="text-[10px] font-bold">HR</span>
           </div>
 
           <span className="text-sm font-semibold tracking-wide">
-            Job Portal
+            Her Recruit
           </span>
         </Link>
 

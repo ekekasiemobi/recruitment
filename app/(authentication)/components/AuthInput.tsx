@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  InputHTMLAttributes,
-  useState,
-} from "react";
-
+import {InputHTMLAttributes, useState,} from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 interface AuthInputProps
