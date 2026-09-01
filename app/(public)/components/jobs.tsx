@@ -10,20 +10,7 @@ import type { JobResponse } from '../../types/types'
 import type { Inputs } from '../../types/types'
 import Link from "next/link"
 import  {formatRelativeTime } from '../../types/formatetime'
-import { 
-  User, 
-  Clock, 
-  Briefcase, 
-  GraduationCap, 
-  DollarSign, 
-  MapPin, 
-  Mail, 
-  Phone, 
-  MessageSquare, 
-  Bookmark, 
-  Award,
-  Check
-} from 'lucide-react';
+import { User, Clock, Briefcase, GraduationCap, DollarSign, MapPin, Mail, Phone, MessageSquare, Bookmark, Award, Check } from 'lucide-react';
 
 function Home() {
     const [jobs, setJobs] = useState<JobResponse[]>([])
@@ -81,12 +68,12 @@ function Home() {
 
   return (
     <>
-        {/* <Nav/> */}
+     
 
         <main className='bg-white min-h-screen '>
        
             <div className='sm-bg md:md-bg bg-[#5EA4A3] p-15 relative'>
-                
+                <h1 className="uppercase text-white text-4xl font-bold">recent jobs available</h1>
             </div>
 
             <div className='w-[90vw] mx-auto pt-10'>
