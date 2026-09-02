@@ -10,9 +10,9 @@ export default function TestimonialCard({
   testimonial,
 }: TestimonialCardProps) {
   return (
-    <article className="rounded-xl border border-[#e8eceb] bg-white p-6 shadow-sm transition hover:border-[#159a8c]/40 ">
+    <article className="rounded-xl border border-[#e8eceb] bg-white p-6 shadow-sm transition hover:shadow-md">
       
-      {/* Stars */}
+      
       <div className="mb-4 flex gap-1">
         {[...Array(testimonial.rating)].map((_, index) => (
           <Star
@@ -22,17 +22,17 @@ export default function TestimonialCard({
         ))}
       </div>
 
-      {/* Title */}
+      
       <h3 className="text-sm font-semibold text-[#171717]">
         {testimonial.title}
       </h3>
 
-      {/* Content */}
+     
       <p className="mt-3 text-sm leading-6 text-gray-500">
         {testimonial.content}
       </p>
 
-      {/* User */}
+      
       <div className="mt-6 flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#eef8f6] text-sm font-semibold text-[#159a8c]">
           {testimonial.name.charAt(0)}

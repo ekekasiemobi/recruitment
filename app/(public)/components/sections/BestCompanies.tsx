@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image from "../../images/Img.png";
+// import image from "../../images/Img.png";
 import {
   BadgeCheck,
   FileText,
@@ -32,13 +32,13 @@ export default function BestCompanies() {
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8 lg:px-10">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
           
-          {/* IMAGE COLLAGE */}
+         
           <div className="grid h-[430px] grid-cols-[1fr_1fr] gap-3 sm:h-[500px]">
             
-            {/* Large image */}
+           
             <div className="relative overflow-hidden rounded-xl">
               <Image
-                src={image}
+                src="/img4.jpeg"
                 alt="Professionals working together"
                 fill
                 sizes="(max-width: 1024px) 50vw, 300px"
@@ -46,11 +46,11 @@ export default function BestCompanies() {
               />
             </div>
 
-            {/* Two smaller images */}
+           
             <div className="grid grid-rows-2 gap-3">
               <div className="relative overflow-hidden rounded-xl">
                 <Image
-                  src={image}
+                  src="/img3.jpeg"
                   alt="Professional workplace"
                   fill
                   sizes="(max-width: 1024px) 50vw, 300px"
@@ -60,7 +60,7 @@ export default function BestCompanies() {
 
               <div className="relative overflow-hidden rounded-xl">
                 <Image
-                  src={image}
+                  src="/img2.jpeg"
                   alt="Team collaboration"
                   fill
                   sizes="(max-width: 1024px) 50vw, 300px"
@@ -70,7 +70,7 @@ export default function BestCompanies() {
             </div>
           </div>
 
-          {/* CONTENT */}
+          
           <div>
             <h2 className="max-w-md text-3xl font-bold leading-[1.08] tracking-tight text-[#111111] sm:text-4xl lg:text-[42px]">
               We're Only Working
@@ -84,7 +84,7 @@ export default function BestCompanies() {
               grow together.
             </p>
 
-            {/* FEATURES */}
+           
             <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-7">
               {features.map((feature) => {
                 const Icon = feature.icon;

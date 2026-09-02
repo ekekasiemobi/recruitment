@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import image from "../../images/Imgs.png";
+// import image from "../../images/Imgs.png";
 
 export default function FutureBanner() {
   return (
@@ -9,24 +9,24 @@ export default function FutureBanner() {
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8 lg:px-10">
         <div className="relative min-h-[280px] overflow-hidden rounded-xl bg-black sm:min-h-[330px]">
           
-          {/* Background image */}
+         
           <div className="absolute inset-y-0 right-0 w-full sm:w-[58%]">
             <Image
-              src={image}
+              src="/img5.jpg"
               alt="People building their future"
               fill
               sizes="(max-width: 640px) 100vw, 60vw"
               className="object-cover"
             />
 
-            {/* Fade image into black */}
+            
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/10" />
 
-            {/* Mobile overlay */}
+            
             <div className="absolute inset-0 bg-black/30 sm:hidden" />
           </div>
 
-          {/* Content */}
+          
           <div className="relative z-10 flex min-h-[280px] max-w-xl flex-col justify-center px-6 py-10 sm:min-h-[330px] sm:px-8 lg:px-10">
             
             <h2 className="max-w-md text-3xl font-bold leading-[1.08] text-white sm:text-4xl">

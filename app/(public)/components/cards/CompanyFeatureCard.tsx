@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import Img from "../../images/Img.png"
+// import Img from "../../images/Img.png"
 
 type CompanyFeatureStat = {
   value: string;
@@ -82,7 +82,7 @@ export default function CompanyFeatureCard({
   const imageContent = (
     <div className="relative min-h-[360px] overflow-hidden rounded-2xl sm:min-h-[440px] lg:min-h-[500px]">
       <Image
-        src={Img}
+        src={image}
         alt={imageAlt}
         fill
         priority

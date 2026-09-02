@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Play, ArrowUpRight } from "lucide-react";
-import image from "../../images/Img.png"
+// import image from "../../images/Img.png"
 
 const videoFeatures = [
   {
@@ -24,22 +24,22 @@ export default function VideoSection() {
         
         <div className="relative h-[390px] overflow-hidden rounded-xl sm:h-[470px] lg:h-[520px]">
           
-          {/* Background */}
+          
           <Image
-            src={image}
+            src="/img2.jpeg"
             alt="Good life begins with a good company"
             fill
             sizes="(max-width: 1180px) 100vw, 1180px"
             className="object-cover"
           />
 
-          {/* Dark overlay */}
+          
           <div className="absolute inset-0 bg-black/50" />
 
-          {/* Center content */}
+          
           <div className="absolute inset-0 flex flex-col items-center justify-center pb-20 text-center">
             
-            {/* Play button */}
+            
             <button
               type="button"
               aria-label="Play video"
@@ -57,7 +57,7 @@ export default function VideoSection() {
             </h2>
           </div>
 
-          {/* Bottom black information bar */}
+          
           <div className="absolute bottom-0 left-0 right-0 bg-black/90 px-5 py-4 sm:px-7 sm:py-5">
             <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
               {videoFeatures.map((feature) => (

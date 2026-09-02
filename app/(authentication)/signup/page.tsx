@@ -379,11 +379,12 @@ export default function SignupPage() {
 
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('/images/auth/auth-bg.jpg')",
-            }}
           />
+          <img 
+    src="/authImg.png" 
+    alt="Hiring background" 
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
          
 
