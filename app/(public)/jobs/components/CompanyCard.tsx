@@ -14,12 +14,12 @@ export default function CompanyCard({
       href={`/companies/${company.id}`}
       className="group block rounded-xl border border-[#e7edeb] bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#159a8c]/40 hover:shadow-md"
     >
-      {/* Logo */}
+      
       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#f4f6f5] text-[#171717]">
         <Building2 className="h-5 w-5" />
       </div>
 
-      {/* Content */}
+      
       <div className="mt-4">
         <h3 className="text-sm font-semibold text-[#171717] group-hover:text-[#159a8c]">
           {company.name}

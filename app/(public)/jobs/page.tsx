@@ -7,6 +7,7 @@ import { Search, MapPin, Briefcase, Clock, DollarSign, Bookmark, ChevronDown, Ch
 import { formatRelativeTime } from '../../types/formatetime'; 
 import type { JobResponse } from '../../types/types'
 import Hero2 from '../components/hero2';
+import Image from "next/image";
 
 function JobsListingPage() {
   const [jobs, setJobs] = useState<JobResponse[]>([]);
@@ -244,9 +245,23 @@ function JobsListingPage() {
 
           </div>
 
-          <div className="bg-linear-to-b from-slate-400 to-slate-700 p-8 rounded-2xl text-white min-h-65 flex flex-col justify-end shadow-sm">
-            <h3 className="text-2xl font-extrabold tracking-tight">WE ARE HIRING</h3>
+          <div className=" relative bg-linear-to-b from-slate-400 to-slate-700 p-8 rounded-2xl text-white min-h-65 flex flex-col justify-end shadow-sm">
+            <img 
+    src="/img5.jpg" 
+    alt="Hiring background" 
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+  {/* <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/90"></div> */}
+                <div className="absolute inset-0 bg-gradient-to-b fron-slate-900/70 to-slate-900/90"></div>
+                <div className="relative z-20">
+                  <h3 className="text-2xl font-extrabold tracking-tight">WE ARE HIRING</h3>
             <p className="text-sm font-medium opacity-90 mt-1">Apply Today!</p>
+
+                </div>
+
+            
+            
+            
           </div>
 
         </aside>
